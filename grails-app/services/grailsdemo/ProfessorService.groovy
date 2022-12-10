@@ -1,11 +1,18 @@
 package grailsdemo
 
-import grails.gorm.transactions.Transactional
+import grails.gorm.services.Service
 
-@Transactional
-class ProfessorService {
+@Service(Professor)
+interface ProfessorService {
 
-    def serviceMethod() {
+    Professor get(Serializable id)
 
-    }
+    List<Professor> list(Map args)
+
+    Long count()
+
+    void delete(Serializable id)
+
+    Professor save(Professor professor)
+
 }

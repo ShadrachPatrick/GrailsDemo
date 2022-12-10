@@ -6,12 +6,12 @@ import static org.springframework.http.HttpStatus.*
 class ProfessorController {
 
     ProfessorService professorService
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond professorService.list(params),
-                model: [professorCount: professorService.count()]
+        respond professorService.list(params), model:[professorCount: professorService.count()]
     }
 
     def show(Long id) {
@@ -27,21 +27,17 @@ class ProfessorController {
             notFound()
             return
         }
+
         try {
             professorService.save(professor)
         } catch (ValidationException e) {
-            respond professor.errors, view: 'create'
+            respond professor.errors, view:'create'
             return
         }
+
         request.withFormat {
             form multipartForm {
-                flash.message = message(
-                        code: 'default.created.message',
-                        args: [message(code: 'professor.label',
-                                default: 'Professor'),
-                               professor.id
-                        ]
-                )
+                flash.message = message(code: 'default.created.message', args: [message(code: 'professor.label', default: 'Professor'), professor.id])
                 redirect professor
             }
             '*' { respond professor, [status: CREATED] }
@@ -57,38 +53,34 @@ class ProfessorController {
             notFound()
             return
         }
+
         try {
             professorService.save(professor)
         } catch (ValidationException e) {
-            respond professor.errors, view: 'edit'
+            respond professor.errors, view:'edit'
             return
         }
+
         request.withFormat {
             form multipartForm {
-                flash.message = message(
-                        code: 'default.updated.message',
-                        args: [message(code: 'professor.label', default: 'Professor'),
-                               professor.id
-                        ]
-                )
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'professor.label', default: 'Professor'), professor.id])
                 redirect professor
             }
-            '*' { respond professor, [status: OK] }
+            '*'{ respond professor, [status: OK] }
         }
     }
 
-    def delete(Professor professor) {
-        if (professor == null) {
+    def delete(Long id) {
+        if (id == null) {
             notFound()
             return
         }
+
         professorService.delete(id)
+
         request.withFormat {
             form multipartForm {
-                flash.message = message(
-                        code: 'default.deleted.message',
-                        args: [message(code: 'professor.label', default: 'Professor'),
-                               professor.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'professor.label', default: 'Professor'), id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -98,13 +90,7 @@ class ProfessorController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(
-                        code: 'default.not.found.message',
-                        args: [message(code: 'professor.label',
-                                default: 'Professor'),
-                               params.id
-                        ]
-                )
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'professor.label', default: 'Professor'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
