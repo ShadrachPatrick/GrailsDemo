@@ -1,6 +1,6 @@
 package grailsdemo.mnbeziehung
 
-class Professor {
+class BetaProfessor {
 
     String vorname
     String nachname

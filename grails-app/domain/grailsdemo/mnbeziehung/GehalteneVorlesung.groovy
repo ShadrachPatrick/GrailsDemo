@@ -2,7 +2,7 @@ package grailsdemo.mnbeziehung
 
 class GehalteneVorlesung {
     String semester
-    static belongsTo = [professor: Professor, vorlesung: Vorlesung]
+    static belongsTo = [professor: BetaProfessor, vorlesung: Vorlesung]
     static constraints = {
         professor nullable: false
         vorlesung nullable: false

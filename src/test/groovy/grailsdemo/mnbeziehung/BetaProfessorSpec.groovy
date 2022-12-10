@@ -3,7 +3,7 @@ package grailsdemo.mnbeziehung
 import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 
-class ProfessorSpec extends Specification implements DomainUnitTest<Professor> {
+class BetaProfessorSpec extends Specification implements DomainUnitTest<BetaProfessor> {
 
     def setup() {
     }
