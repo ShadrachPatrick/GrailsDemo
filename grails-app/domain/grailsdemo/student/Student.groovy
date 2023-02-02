@@ -1,7 +1,6 @@
 package grailsdemo.student
 
-
-import grailsdemo.datatypes.Adresse
+import datatypes.Adresse
 
 class Student {
     String vorname

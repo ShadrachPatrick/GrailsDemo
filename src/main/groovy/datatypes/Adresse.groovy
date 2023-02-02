@@ -1,4 +1,4 @@
-package grailsdemo.datatypes
+package datatypes
 
 class Adresse {
     String strasse
