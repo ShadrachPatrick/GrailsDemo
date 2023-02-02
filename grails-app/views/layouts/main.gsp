@@ -35,7 +35,7 @@
 
 <div class="footer" role="contentinfo">
     <div class="container-fluid">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col">
                 <a href="http://guides.grails.org" target="_blank">
                     <asset:image src="advancedgrails.svg" alt="Grails Guides" class="float-left"/>
@@ -59,7 +59,7 @@
                 <strong class="centered"><a href="https://slack.grails.org" target="_blank">Join the Community</a></strong>
                 <p>Get feedback and share your experience with other Grails developers in the community <a href="https://slack.grails.org" target="_blank">Slack channel</a>.</p>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
