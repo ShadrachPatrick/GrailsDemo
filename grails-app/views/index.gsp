@@ -57,27 +57,6 @@
                 </div>
          </g:form>
         </div>
-       
-<%--       <section class="row colset-2-its">
-            <g:form controller="login" action="login" method="post">
-                <table>
-                <tr>
-                    <td>Username:</td>
-                    <td>
-                        <g:textField name="username" value="${username}"></g:textField>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Passwort:</td>
-                    <td>
-                        <g:passwordField name="password" value="${password}"></g:passwordField>
-                    </td>
-                </tr>
-                </table>
-                <fieldset class="buttons">
-                <g:submitButton name="Login" value="Login" />
-                </fieldset>
-            </g:form>
       </div>
    </body>
 </html>
