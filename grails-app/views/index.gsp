@@ -19,7 +19,7 @@
             <div id="controllers" role="navigation">
                 <h2>Controller:</h2>
                 <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
+                  <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
                         <button class="controller">
                             <g:link controller="${c.logicalPropertyName}">${c.name}</g:link>
                         </button>
